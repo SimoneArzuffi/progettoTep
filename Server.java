@@ -3,22 +3,27 @@ import java.net.*;
 
 public class Server {
     public static void main(String[] args) {
-        int port = 1234; // Scegli una porta
-        try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.println("Server in attesa di connessioni sulla porta " + port);
-            try (Socket clientSocket = serverSocket.accept();
-                 PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
-                System.out.println("Connessione accettata.");
-                String inputLine;
-                while ((inputLine = in.readLine()) != null) {
-                    System.out.println("Messaggio ricevuto: " + inputLine);
-                    out.println("Eco: " + inputLine);
+        try (ServerSocket serverSocket = new ServerSocket(1234)) {
+            System.out.println("Server is listening on port 1234");
+            
+            while (true) {
+                try (Socket socket = serverSocket.accept();
+                     PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                     BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+                    
+                    String inputLine;
+                    while ((inputLine = in.readLine()) != null) {
+                        System.out.println("Server received: " + inputLine);
+                        out.println("Echo: " + inputLine);
+                    }
+                } catch (IOException e) {
+                    System.out.println("Exception caught when trying to listen on port 1234 or listening for a connection");
+                    System.out.println(e.getMessage());
                 }
             }
         } catch (IOException e) {
-            System.out.println("Errore nel server: " + e.getMessage());
-            e.printStackTrace();
+            System.out.println("Could not listen on port 1234");
+            System.out.println(e.getMessage());
         }
     }
 }
