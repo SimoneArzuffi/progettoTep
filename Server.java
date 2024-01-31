@@ -8,13 +8,15 @@ public class Server {
             
             while (true) {
                 try (Socket socket = serverSocket.accept();
-                     PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                     BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-                    
+                    PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                    BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
                     String inputLine;
                     while ((inputLine = in.readLine()) != null) {
                         System.out.println("Server received: " + inputLine);
                         out.println("Echo: " + inputLine);
+                        if(inputLine.equals("QUIT")){
+                            break;
+                        }
                     }
                 } catch (IOException e) {
                     System.out.println("Exception caught when trying to listen on port 1234 or listening for a connection");
@@ -25,5 +27,8 @@ public class Server {
             System.out.println("Could not listen on port 1234");
             System.out.println(e.getMessage());
         }
+    }
+
+    private void creaPersonaggi(){
     }
 }
