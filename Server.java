@@ -14,17 +14,18 @@ public class Server {
                     while ((inputLine = in.readLine()) != null) {
                         System.out.println("Server received: " + inputLine);
                         out.println("Echo: " + inputLine);
+                        
                         if(inputLine.equals("QUIT")){
                             break;
                         }
                     }
                 } catch (IOException e) {
-                    System.out.println("Exception caught when trying to listen on port 1234 or listening for a connection");
+                    System.out.println("Eccezione rilevata durante il tentativo di ascolto sulla porta 1234 o l'ascolto di una connessione");
                     System.out.println(e.getMessage());
                 }
             }
         } catch (IOException e) {
-            System.out.println("Could not listen on port 1234");
+            System.out.println("Impossibile connettersi sulla porta 1234");
             System.out.println(e.getMessage());
         }
     }
