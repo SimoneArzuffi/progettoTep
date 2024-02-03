@@ -5,6 +5,7 @@ public class Server {
 
     private static String parteiniziale1 = "Il personaggio è";
     private static String parteiniziale2 = "Il personaggio ha i capelli";
+    private static String parteiniziale3 = "Il personaggio si chiama";
        public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(1234)) {
             System.out.println("Server is listening on port 1234");
@@ -29,6 +30,8 @@ public class Server {
                                 out.println("ricevuto occhiali");
                             }else if(inputLine.equals("Il personaggio ha il cappello?")){
                                 out.println("ricevuto capello");
+                            }else if(inputLine.startsWith(parteiniziale3)){
+
                             }else{
                                 out.println("Domanda non ammessa");
                             }

@@ -20,7 +20,8 @@ public class Client {
             System.out.println("Il personaggio ha i capelli biondi?");
             System.out.println("Il personaggio ha gli occhiali?");
             System.out.println("Il personaggio ha il cappello?");
-            System.out.println("Ogni domanda va scritta con queste esatte parole, si può cambiare il genere e il colore dei capelli");
+            System.out.println("Il personaggio si chiama Gianni?");
+            System.out.println("Ogni domanda va scritta con queste esatte parole, si può cambiare il genere, il colore dei capelli e il nome del personaggio");
             String userInput;
             while (true) 
             { 
