@@ -29,6 +29,8 @@ public class Client {
                 out.println(userInput);
                 if (userInput.equals("QUIT")){
                     break; 
+                }else{
+                    System.out.println("Server says: " + in.readLine());
                 }
             }
         } catch (UnknownHostException e) {

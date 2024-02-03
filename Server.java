@@ -16,20 +16,19 @@ public class Server {
                     String inputLine;
                     while ((inputLine = in.readLine()) != null) {
                         System.out.println("Server received: " + inputLine);
-                        out.println("Echo: " + inputLine);
                         // Se l'utente scrive QUIT, il server si disconnette
                         if (inputLine.equals("QUIT")) {
                             break;
                         }else{
                             //controllo input client con domande ammesse
                             if(inputLine.startsWith(parteiniziale1)){
-                                out.println("SI");
+                                out.println("ricevuto genere");
                             }else if(inputLine.startsWith(parteiniziale2)){
-                                out.println("NO");
+                                out.println("ricevuto capelli");
                             }else if(inputLine.equals("Il personaggio ha gli occhiali?")){
-                                out.println("NO");
+                                out.println("ricevuto occhiali");
                             }else if(inputLine.equals("Il personaggio ha il cappello?")){
-                                out.println("NO");
+                                out.println("ricevuto capello");
                             }else{
                                 out.println("Domanda non ammessa");
                             }
@@ -47,5 +46,6 @@ public class Server {
     }
 
     private void creaPersonaggi(){
+
     }
 }
