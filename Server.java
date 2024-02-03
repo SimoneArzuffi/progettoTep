@@ -2,7 +2,10 @@ import java.io.*;
 import java.net.*;
 
 public class Server {
-    public static void main(String[] args) {
+
+    private static String parteiniziale1 = "Il personaggio è";
+    private static String parteiniziale2 = "Il personaggio ha i capelli";
+       public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(1234)) {
             System.out.println("Server is listening on port 1234");
             
@@ -14,9 +17,22 @@ public class Server {
                     while ((inputLine = in.readLine()) != null) {
                         System.out.println("Server received: " + inputLine);
                         out.println("Echo: " + inputLine);
-                        
-                        if(inputLine.equals("QUIT")){
+                        // Se l'utente scrive QUIT, il server si disconnette
+                        if (inputLine.equals("QUIT")) {
                             break;
+                        }else{
+                            //controllo input client con domande ammesse
+                            if(inputLine.startsWith(parteiniziale1)){
+                                out.println("SI");
+                            }else if(inputLine.startsWith(parteiniziale2)){
+                                out.println("NO");
+                            }else if(inputLine.equals("Il personaggio ha gli occhiali?")){
+                                out.println("NO");
+                            }else if(inputLine.equals("Il personaggio ha il cappello?")){
+                                out.println("NO");
+                            }else{
+                                out.println("Domanda non ammessa");
+                            }
                         }
                     }
                 } catch (IOException e) {
