@@ -31,7 +31,7 @@ public class Server {
                             }else if(inputLine.equals("Il personaggio ha il cappello?")){
                                 out.println("ricevuto capello");
                             }else if(inputLine.startsWith(parteiniziale3)){
-
+                                out.println("ricevuto nome");
                             }else{
                                 out.println("Domanda non ammessa");
                             }
