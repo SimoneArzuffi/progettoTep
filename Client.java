@@ -8,8 +8,7 @@ public class Client {
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("Per uscire scrivi QUIT");
-            //stama sul client le regole del gioco del personaggio misterioso
-            System.out.println("Il gioco del personaggio misterioso");
+            System.out.println("Il gioco dell'indovina chi");
             System.out.println("Il server pensa ad un personaggio e tu devi indovinarlo");
             System.out.println("Per indovinare il personaggio devi fare delle domande al server");
             System.out.println("Il server risponderà con SI o NO");
