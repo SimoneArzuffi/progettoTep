@@ -6,7 +6,10 @@ public class Server {
     private static String parteiniziale1 = "Il personaggio è";
     private static String parteiniziale2 = "Il personaggio ha i capelli";
     private static String parteiniziale3 = "Il personaggio si chiama";
+    private static Personaggio[] personaggi = new Personaggio[12];
+    private static String[] paroleFrase;
        public static void main(String[] args) {
+        creaPersonaggi();
         try (ServerSocket serverSocket = new ServerSocket(1234)) {
             System.out.println("Server is listening on port 1234");
             
@@ -23,15 +26,22 @@ public class Server {
                         }else{
                             //controllo input client con domande ammesse
                             if(inputLine.startsWith(parteiniziale1)){
-                                out.println("ricevuto genere");
+                                //out.println("ricevuto genere");
+                                paroleFrase = inputLine.split(" ");
+                                if(paroleFrase[paroleFrase.length - 1].equals("maschio")){
+                                    out.println("SI");
+                                }else{
+                                    out.println("NO");
+                                }
                             }else if(inputLine.startsWith(parteiniziale2)){
-                                out.println("ricevuto capelli");
+                                //out.println("ricevuto capelli");
+                                paroleFrase = inputLine.split(" ");
                             }else if(inputLine.equals("Il personaggio ha gli occhiali?")){
-                                out.println("ricevuto occhiali");
+                                //out.println("ricevuto occhiali");
                             }else if(inputLine.equals("Il personaggio ha il cappello?")){
-                                out.println("ricevuto capello");
+                                //out.println("ricevuto capello");
                             }else if(inputLine.startsWith(parteiniziale3)){
-                                out.println("ricevuto nome");
+                                //out.println("ricevuto nome");
                             }else{
                                 out.println("Domanda non ammessa");
                             }
@@ -48,7 +58,10 @@ public class Server {
         }
     }
 
-    private void creaPersonaggi(){
-
+    private static void creaPersonaggi(){
+        personaggi[0] = new Personaggio("tommaso", "maschio", "neri", false,true, false);
+        personaggi[1] = new Personaggio("alessandro", "maschio", "neri", true,false, false);
+        personaggi[2] = new Personaggio("carlo", "maschio", "biondi", true,false, true);
+        personaggi[3] = new Personaggio("ernesto", "maschio", "neri", false,true, false);//to finish
     }
 }

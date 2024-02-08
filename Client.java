@@ -7,6 +7,9 @@ public class Client {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in))) {
+            
+            String userInput;
+            
             System.out.println("Per uscire scrivi QUIT");
             System.out.println("Il gioco dell'indovina chi");
             System.out.println("Il server pensa ad un personaggio e tu devi indovinarlo");
@@ -22,7 +25,7 @@ public class Client {
             System.out.println("Il personaggio ha il cappello?");
             System.out.println("Il personaggio si chiama Gianni?");
             System.out.println("Ogni domanda va scritta con queste esatte parole, si può cambiare il genere, il colore dei capelli e il nome del personaggio");
-            String userInput;
+            
             while (true) 
             { 
                 System.out.print("Inserisci: "); 
