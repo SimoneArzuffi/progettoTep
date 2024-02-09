@@ -10,22 +10,7 @@ public class Client {
             
             String userInput;
             
-            System.out.println("Per uscire scrivi QUIT");
-            System.out.println("Il gioco dell'indovina chi");
-            System.out.println("Il server pensa ad un personaggio e tu devi indovinarlo");
-            System.out.println("Per indovinare il personaggio devi fare delle domande al server");
-            System.out.println("Il server risponderà con SI o NO");
-            System.out.println("Per esempio: \"Il personaggio ha gli occhiali?\"");
-            System.out.println("Il server risponderà con SI o NO");
-            System.out.println("Per uscire scrivi QUIT");
-            System.out.println("P.S. le domande ammesse sono queste:");
-            System.out.println("Il personaggio è maschio?");
-            System.out.println("Il personaggio ha i capelli biondi?");
-            System.out.println("Il personaggio ha gli occhiali?");
-            System.out.println("Il personaggio ha il cappello?");
-            System.out.println("Il personaggio si chiama Gianni?");
-            System.out.println("Ogni domanda va scritta con queste esatte parole, si può cambiare il genere, il colore dei capelli e il nome del personaggio");
-            
+
             while (true) 
             { 
                 System.out.print("Inserisci: "); 
