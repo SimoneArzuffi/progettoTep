@@ -15,7 +15,7 @@ public class Server {
 
             while (true) {
                 Socket socket = serverSocket.accept();
-                new Thread(new ClientHandler(socket)).start();
+                new Thread(new Client(socket)).start();
             }
         } catch (IOException e) {
             System.out.println("Impossibile connettersi sulla porta 1234");
@@ -32,7 +32,7 @@ public class Server {
         personaggi[4] = new Personaggio("Guglielmo", "maschio", "biondi", true,false, false);
         personaggi[5] = new Personaggio("Maria", "femmina", "castani", false,false, true);
         personaggi[6] = new Personaggio("Roberto", "maschio", "castani", false,false, false);
-        personaggi[7] = new Personaggio("Pietro", "maschio", "bianchi", false,true, false);
+        personaggi[7] = new Personaggio("Pietro", "maschio", "bianchi", false,false, false);
         personaggi[8] = new Personaggio("Anna", "femmina", "neri", false,false, false);
         personaggi[9] = new Personaggio("Giacomo", "maschio", "arancioni", false,false, false);
         personaggi[10] = new Personaggio("Davide", "maschio", "biondi", true,false, false);
@@ -42,11 +42,11 @@ public class Server {
         return (int)(Math.random() * max);
     }
 
-    private static class ClientHandler implements Runnable {
+    private static class Client implements Runnable {
         private Socket socket;
         private static String[] paroleFrase;
 
-        public ClientHandler(Socket socket) {
+        public Client(Socket socket) {
             this.socket = socket;
         }
 
@@ -69,21 +69,21 @@ public class Server {
                     //controllo input client con domande ammesse
                     if(inputLine.startsWith(parteiniziale1)){
                         paroleFrase = inputLine.split(" ");
-                        if(paroleFrase[paroleFrase.length - 1].equals(personaggi[numeroCasuale].getGenere())){
+                        if(paroleFrase[paroleFrase.length - 2].equals(personaggi[numeroCasuale].getGenere())){
                             out.println("SI");
                         }else{
                             out.println("NO");
                         }
                     }else if(inputLine.startsWith(parteiniziale2)){
                         paroleFrase = inputLine.split(" ");
-                        if(paroleFrase[paroleFrase.length - 1].equals(personaggi[numeroCasuale].getColoreCapelli())){
+                        if(paroleFrase[paroleFrase.length - 2].equals(personaggi[numeroCasuale].getColoreCapelli())){
                             out.println("SI");
                         }else{
                             out.println("NO");
                         }
                     }else if(inputLine.startsWith(parteiniziale3)){
                         paroleFrase = inputLine.split(" ");
-                        if(paroleFrase[paroleFrase.length - 1].equalsIgnoreCase(personaggi[numeroCasuale].getNome())){
+                        if(paroleFrase[paroleFrase.length - 2].equalsIgnoreCase(personaggi[numeroCasuale].getNome())){
                             out.println("SI");
                         }else{
                             out.println("NO");
