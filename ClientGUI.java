@@ -51,17 +51,6 @@ public class ClientGUI extends JFrame {
         messagesArea.append("Il server pensa ad un personaggio e tu devi indovinarlo\n");
         messagesArea.append("Per indovinare il personaggio devi fare delle domande al server\n");
         messagesArea.append("Il server risponderà con SI o NO\n");
-        messagesArea.append("Per esempio: \"Il personaggio ha gli occhiali ?\"\n");
-        messagesArea.append("Il server risponderà con SI o NO\n");
-        messagesArea.append("Per uscire scrivi QUIT\n");
-        messagesArea.append("P.S. le domande ammesse sono queste:\n");
-        messagesArea.append("Il personaggio è maschio ?\n");
-        messagesArea.append("Il personaggio ha i capelli biondi ?\n");
-        messagesArea.append("Il personaggio ha gli occhiali ?\n");
-        messagesArea.append("Il personaggio ha il cappello ?\n");
-        messagesArea.append("Il personaggio si chiama Gianni ?\n");
-        messagesArea.append("Ogni domanda va scritta con queste esatte parole, si può cambiare il genere, il colore dei capelli e il nome del personaggio\n\n");
-        messagesArea.append("IMPORTANTE, va messo lo spazio anche prima di digitare il punto di domanda\n");
 
         // Imposta le dimensioni preferite per userInputField e sendButton
         userInputField.setPreferredSize(new Dimension(getWidth(), 30));
